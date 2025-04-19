@@ -1,8 +1,8 @@
 import { useCarousel } from "../../application/hooks/useCarousel";
-import { MovieRepository } from "../repository/movie.repository";
+import { MovieFetch } from "../repository/movie.fetch";
 import { MovieFetchService } from "../repository/movie-fetch.service";
 
-const movieAdapter = new MovieRepository(new MovieFetchService());
+const movieAdapter = new MovieFetch(new MovieFetchService());
 
 export const Carousel = () => {
 

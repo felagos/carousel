@@ -1,8 +1,8 @@
-import { MovieRepositoryPort } from "../../domain/movie-repository.port";
+import { MovieFetchPort } from "../../domain/movie-fetch.port";
 import { MovieDetail } from "../../domain/movie.domain";
 import { MovieFetchService } from "./movie-fetch.service";
 
-export class MovieRepository implements MovieRepositoryPort {
+export class MovieFetch implements MovieFetchPort {
 
 	constructor(private movieFetch: MovieFetchService) {}
 
