@@ -1,10 +1,9 @@
-import { Carousel } from './carousel/infrastructure/ui/Carousel';
+import { CarouselProvider } from './carousel/infrastructure/ui/CarouselProvider';
 
-function App() {
-
+const App = () => {
 	return (
-		<Carousel />
-	)
+		<CarouselProvider />
+	);
 }
 
-export default App
+export default App;

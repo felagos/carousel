@@ -1,17 +1,16 @@
-import { MovieRepositoryPort } from "../../domain/out/movie-repository.port";
+import { MovieRepositoryPort } from "../../domain/ports/outgoing/movie-repository.port";
 import { MovieDetail } from "../../domain/movie.domain";
-import { MovieStoreRepository } from "./movie-store.repository";
+import { useMovieStore } from "./movie.store";
 
 export class MovieRepository implements MovieRepositoryPort {
 
-	constructor(private movieStore: MovieStoreRepository) {}
+	private readonly store = useMovieStore
 
 	setMovies = (movies: MovieDetail[]): void => {
-		this.movieStore.setMovies(movies);
+		this.store.setState({ movies });
 	}
 
 	getMovies = (): MovieDetail[] => {
-		return this.movieStore.getMovies();
+		return this.store.getState().movies;
 	}
-
 }

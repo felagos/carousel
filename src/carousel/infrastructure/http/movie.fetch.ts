@@ -1,4 +1,4 @@
-import { MovieFetchPort } from "../../domain/out/movie-fetch.port";
+import { MovieFetchPort } from "../../domain/ports/outgoing/movie-fetch.port";
 import { Movie, MovieDetail } from "../../domain/movie.domain";
 import apiClient from "../../../common/api/http.config";
 

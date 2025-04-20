@@ -1,17 +1,17 @@
 import { useCarousel } from "../../application/hooks/useCarousel";
-import { MovieFetch } from "../http/movie.fetch";
-import { MovieRepository } from "../repository/movie-repository";
-import { MovieStoreRepository } from "../repository/movie-store.repository";
+import { MovieFetchPort } from "../../domain/ports/outgoing/movie-fetch.port";
+import { MovieRepositoryPort } from "../../domain/ports/outgoing/movie-repository.port";
 
-const movieAdapter = new MovieFetch();
-const movieRepository = new MovieRepository(new MovieStoreRepository());
+interface Props {
+	movieFetchAdapter: MovieFetchPort;
+	movieRepositoryAdapter: MovieRepositoryPort;
+}
 
-export const Carousel = () => {
-
-	 useCarousel(movieAdapter, movieRepository);
+export const Carousel: React.FC<Props> = ({ movieFetchAdapter, movieRepositoryAdapter }) => {
+	useCarousel(movieFetchAdapter, movieRepositoryAdapter);
 
 	return (
-		<div></div>
+		<div>
+		</div>
 	);
-
 };
