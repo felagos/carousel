@@ -1,6 +1,6 @@
 import { MovieFetchPort } from "../../domain/movie-fetch.port";
 import { MovieDetail } from "../../domain/movie.domain";
-import { MovieFetchService } from "./movie-fetch.service";
+import { MovieFetchService } from "../http/movie-fetch.service";
 
 export class MovieFetch implements MovieFetchPort {
 
