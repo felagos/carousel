@@ -6,23 +6,21 @@ import { CarouselUseCase } from "../../domain/ports/incoming/carousel-use-case.p
 import { MovieDetail } from "../../domain/movie.domain";
 
 export const useCarousel = (
-  moviePort: MovieFetchPort,
-  movieRepository: MovieRepositoryPort
+	moviePort: MovieFetchPort,
+	movieRepository: MovieRepositoryPort
 ): CarouselUseCase => {
 
-	const [data, loading, error] = useFetch(moviePort.fetchMovies);
+	const [data, loading, error, refetch] = useFetch(moviePort.fetchMovies);
 
 	useEffect(() => {
-		if(data) {
+		if (data) {
 			movieRepository.setMovies(data);
 		}
 	}, [data, movieRepository]);
 
 	const loadMovies = useCallback(() => {
-		// This will trigger the useFetch hook to refetch data
-		// In a real implementation, we would need to add a refetch function to useFetch
-		// For now, this is a placeholder
-	}, []);
+		return refetch();
+	}, [refetch]);
 
 	const getMovies = useCallback((): MovieDetail[] => {
 		return movieRepository.getMovies();
