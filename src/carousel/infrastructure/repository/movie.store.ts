@@ -6,6 +6,8 @@ type MovieStore = {
 	setMovies: (movies: MovieDetail[]) => void;
 }
 
+export type MovieStoreState = typeof useMovieStore.getState;
+
 export const useMovieStore = create<MovieStore>()((set) => ({
 	movies: [],
 	setMovies: (movies) => set({ movies }),
