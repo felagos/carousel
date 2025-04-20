@@ -3,10 +3,17 @@ import { MovieDetail } from "../../domain/movie.domain";
 import { HttpClient } from "../../../common/api/http.config";
 import { MovieEntity } from "../entity/movie.entity";
 
+/**
+ * Implementation of the MovieFetchPort interface for fetching movie data from an API
+ */
 export class MovieFetch implements MovieFetchPort {
 
 	constructor(private httpClient: HttpClient) { }
 
+	/**
+	 * Fetches movies from the API
+	 * @returns A promise that resolves to an array of MovieDetail objects
+	 */
 	fetchMovies = async (): Promise<MovieDetail[]> => {
 		const response = await this.httpClient.get<MovieEntity>('/movie/now_playing?language=en-US&page=1');
 

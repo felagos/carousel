@@ -1,23 +1,28 @@
 import { MovieDetail } from "../../movie.domain";
 
+/**
+ * Interface defining the use case operations for the carousel component
+ */
 export interface CarouselUseCase {
-  /**
-   * Loads movies for the carousel
-   */
-  loadMovies: () => void;
+	/**
+	 * Loads movies from the data source
+	 * @returns A promise that resolves when movies are loaded
+	 */
+	loadMovies: () => Promise<MovieDetail[]>;
 
-  /**
-   * Returns loaded movie data
-   */
-  getMovies: () => MovieDetail[];
+	/**
+	 * Gets the current list of movies
+	 * @returns An array of MovieDetail objects
+	 */
+	getMovies: () => MovieDetail[];
 
-  /**
-   * Current loading state
-   */
-  isLoading: boolean;
+	/**
+	 * Indicates if movies are currently being loaded
+	 */
+	isLoading: boolean;
 
-  /**
-   * Error state if any
-   */
-  error: Error | null;
+	/**
+	 * Contains error information if loading movies failed
+	 */
+	error: Error | null;
 }
