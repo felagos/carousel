@@ -1,5 +1,5 @@
 import { MovieDetail } from "../../domain/movie.domain";
-import { useMovieStore } from "../store/movie.store";
+import { useMovieStore } from "./movie.store";
 
 export class MovieStoreRepository {
 
