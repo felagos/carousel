@@ -1,6 +1,6 @@
-import { MovieFetchPort } from "../../domain/movie-fetch.port";
+import { MovieFetchPort } from "../../domain/out/movie-fetch.port";
 import { useFetch } from "../../../common/hooks/useFetch";
-import { MovieRepositoryPort } from "../../domain/movie-repository.port";
+import { MovieRepositoryPort } from "../../domain/out/movie-repository.port";
 import { useEffect } from "react";
 
 export const useCarousel = (moviePort: MovieFetchPort, movieRepository: MovieRepositoryPort) => {

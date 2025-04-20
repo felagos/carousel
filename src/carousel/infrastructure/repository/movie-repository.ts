@@ -1,4 +1,4 @@
-import { MovieRepositoryPort } from "../../domain/movie-repository.port";
+import { MovieRepositoryPort } from "../../domain/out/movie-repository.port";
 import { MovieDetail } from "../../domain/movie.domain";
 import { MovieStoreRepository } from "./movie-store.repository";
 
