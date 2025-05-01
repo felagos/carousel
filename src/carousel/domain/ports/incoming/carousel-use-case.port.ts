@@ -5,12 +5,6 @@ import { MovieDetail } from "../../movie.domain";
  */
 export interface CarouselUseCase {
 	/**
-	 * Loads movies from the data source
-	 * @returns A promise that resolves when movies are loaded
-	 */
-	loadMovies: () => Promise<MovieDetail[]>;
-
-	/**
 	 * Gets the current list of movies
 	 * @returns An array of MovieDetail objects
 	 */
