@@ -17,7 +17,6 @@ export class MovieFetch implements MovieFetchPort {
 	fetchMovies = async (): Promise<MovieDetail[]> => {
 		const response = await this.httpClient.get<MovieEntity>('/movie/now_playing?language=en-US&page=1');
 
-		// Convert each MovieDetailEntity to a MovieDetail class instance
 		return response.data.results.map(movie => new MovieDetail(
 			movie.adult,
 			movie.backdrop_path,

@@ -1,7 +1,7 @@
 import { useCarousel } from "../../application/hooks/useCarousel";
 import { MovieFetchPort } from "../../domain/ports/outgoing/movie-fetch.port";
 import { MovieRepositoryPort } from "../../domain/ports/outgoing/movie-repository.port";
-import { ListMovies } from "./ListMovies";
+import { ListMovies } from "./ListMovies/ListMovies";
 
 interface Props {
 	movieFetchAdapter: MovieFetchPort;

@@ -1,4 +1,4 @@
-import { MovieDetail } from "../../domain/movie.domain";
+import { MovieDetail } from "../../../domain/movie.domain";
 
 import "./ListMovies.scss";
 
@@ -7,6 +7,7 @@ interface Props {
 }
 
 export const ListMovies: React.FC<Props> = ({ movies }) => {
+	console.log("ListMovies", movies);
 	return (
 		<div className="movies">
 			{movies.map((movie) => (
@@ -16,8 +17,7 @@ export const ListMovies: React.FC<Props> = ({ movies }) => {
 						alt={movie.title}
 						className="movie__image"
 					/>
-					<h3 className="">{movie.title}</h3>
-					<p className="">{movie.release_date}</p>
+					<span className="movie__title">{movie.title}</span>
 				</div>
 			))}
 		</div>

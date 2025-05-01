@@ -4,7 +4,7 @@ import { MovieDetail } from "../../movie.domain";
  * Interface defining the use case operations for the carousel component.
  * This port represents the primary way for UI components to interact with movie data.
  */
-export interface LoadCarouselUseCase {
+export interface CarouselUseCase {
 	/**
 	 * Current collection of movie details to be displayed in the carousel.
 	 * @readonly The array is typically populated after data fetching operations.

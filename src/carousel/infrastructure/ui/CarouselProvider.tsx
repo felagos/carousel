@@ -6,7 +6,7 @@ import { Carousel } from "./Carousel";
 
 export const CarouselProvider = () => {
 	const movieFetch = new MovieFetch(apiClient);
-	const movieRepository = new MovieRepository(useMovieStore);
+	const movieRepository = new MovieRepository(useMovieStore.getState);
 
 
 	return (
