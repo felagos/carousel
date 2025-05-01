@@ -17,6 +17,7 @@ export const ListMovies: React.FC<Props> = ({ movies }) => {
 						className="movie__image"
 					/>
 					<span className="movie__title">{movie.title}</span>
+					<span className="movie__overview">{movie.overview}</span>
 				</div>
 			))}
 		</div>

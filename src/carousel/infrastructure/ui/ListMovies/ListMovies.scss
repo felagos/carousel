@@ -9,9 +9,27 @@
 
 .movie {
 	position: relative;
+	flex-basis: 300px;
+	flex-grow: 0;
+	flex-shrink: 0; /* Using individual flex properties instead of shorthand */
+	transition: all 0.3s ease-in-out;
 	width: 300px;
 	height: 300px;
 	text-align: center;
+
+	&:hover {
+		flex-basis: 450px;
+		flex-grow: 0;
+		flex-shrink: 0; /* Using individual flex properties instead of shorthand */
+
+		.movie__title {
+			opacity: 0;
+		}
+
+		.movie__overview {
+			opacity: 1;
+		}
+	}
 
 	&__image {
 		width: 100%;
@@ -24,8 +42,26 @@
 		right: 0;
 		bottom: 16px;
 		left: 0;
+		transition: opacity 0.2s ease-in-out;
 		color: white;
 		font-weight: bold;
 		font-size: 16px;
 	}
+
+	&__overview {
+		position: absolute;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		opacity: 0;
+		transition: opacity 0.2s ease-in-out;
+		background-color: rgba(0, 0, 0, 0.5);
+		padding: 8px 16px;
+		height: 95%;
+		overflow: hidden;
+		color: white;
+		font-weight: bold;
+		font-size: 16px;
+	}
+
 }
