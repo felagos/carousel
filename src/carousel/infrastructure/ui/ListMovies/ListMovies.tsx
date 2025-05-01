@@ -18,6 +18,11 @@ export const ListMovies: React.FC<Props> = ({ movies }) => {
 					/>
 					<span className="movie__title">{movie.title}</span>
 					<span className="movie__overview">{movie.overview}</span>
+
+					<video className="movie__video" autoPlay muted loop>
+						<source src="/src/assets/video.mp4" type="video/mp4" />
+						<source src="/src/assets/video.webm" type="video/webm" />
+					</video>
 				</div>
 			))}
 		</div>
