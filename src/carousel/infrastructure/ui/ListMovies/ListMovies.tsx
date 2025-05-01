@@ -7,7 +7,6 @@ interface Props {
 }
 
 export const ListMovies: React.FC<Props> = ({ movies }) => {
-	console.log("ListMovies", movies);
 	return (
 		<div className="movies">
 			{movies.map((movie) => (
