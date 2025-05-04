@@ -1,35 +1,45 @@
+$movie-default-size: 300px;
+$movie-expanded-size: 450px;
+$transition-duration: 0.3s;
+$spacing: 16px;
+$text-color: white;
+$overlay-bg: rgba(0, 0, 0, 0.7);
+
 .movies {
 	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
+	flex-flow: row wrap;
 	justify-content: center;
-	gap: 16px;
+	gap: $spacing;
 	width: 100%;
 }
 
 .movie {
-	display: flex;
 	position: relative;
-	flex-grow: 0;
-	flex-shrink: 0;
-	flex-basis: 300px;
+	display: flex;
+	flex: 0 0 $movie-default-size;
 	flex-direction: column;
-	transition: all 0.3s ease-in-out;
-	width: 300px;
-	height: 300px;
+	width: $movie-default-size;
+	height: $movie-default-size;
 	text-align: center;
+	transition: all $transition-duration cubic-bezier(0.25, 1, 0.5, 1);
+	border-radius: 8px;
+	overflow: hidden;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 
 	&:hover {
-		flex-grow: 0;
-		flex-shrink: 0;
-		flex-basis: 450px;
+		flex: 0 0 $movie-expanded-size;
+		transform: scale(1.02);
+		box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+		z-index: 2;
 
 		.movie__title {
 			opacity: 0;
+			transform: translateY(-10px);
 		}
 
 		.movie__overview {
 			opacity: 1;
+			transform: translateY(0);
 		}
 
 		.movie__video {
@@ -41,55 +51,65 @@
 		}
 	}
 
-	&__image {
+	&__image,
+	&__video {
 		position: absolute;
 		top: 0;
 		left: 0;
-		opacity: 1;
-		transition: opacity 0.2s ease-in-out;
 		width: 100%;
 		height: 100%;
 		object-fit: cover;
+		transition: opacity $transition-duration ease-in-out;
+	}
+
+	&__image {
+		opacity: 1;
+	}
+
+	&__video {
+		opacity: 0;
 	}
 
 	&__title {
+		position: relative;
 		z-index: 1;
-		transition: opacity 0.2s ease-in-out;
 		margin-top: auto;
-		padding-bottom: 16px;
-		color: white;
+		padding: 0 $spacing $spacing;
+		color: $text-color;
 		font-weight: bold;
 		font-size: 16px;
+		text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+		transition: opacity $transition-duration ease-in-out, transform $transition-duration ease-in-out;
+		background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
 	}
 
 	&__overview {
 		display: flex;
 		position: absolute;
+		top: 0;
 		right: 0;
 		bottom: 0;
 		left: 0;
 		align-items: flex-end;
 		opacity: 0;
 		z-index: 1;
-		transition: opacity 0.2s ease-in-out;
-		background-color: rgba(0, 0, 0, 0.5);
-		padding: 8px 16px;
-		height: 95%;
-		overflow: hidden;
-		color: white;
-		font-weight: bold;
-		font-size: 16px;
-	}
+		transform: translateY(10px);
+		transition: all $transition-duration ease-in-out;
+		background-color: $overlay-bg;
+		padding: $spacing;
+		overflow: auto;
+		color: $text-color;
+		font-weight: normal;
+		font-size: 14px;
+		line-height: 1.4;
 
-	&__video {
-		position: absolute;
-		top: 0;
-		left: 0;
-		opacity: 0;
-		transition: opacity 0.2s ease-in-out;
-		width: 100%;
-		height: 100%;
-		object-fit: cover;
-	}
+		&::-webkit-scrollbar {
+			width: 4px;
+		}
 
+		&::-webkit-scrollbar-thumb {
+			background-color: rgba(255, 255, 255, 0.3);
+			border-radius: 2px;
+		}
+	}
 }
